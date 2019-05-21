@@ -1,7 +1,9 @@
 @import './reset.css';
 // 主题颜色
 $defaultTheme: pink;
-
+body{
+  -webkit-overflow-scrolling: touch;
+}
 #root {
   width: 100vw;
   height: 100vh;
@@ -31,24 +33,27 @@ $defaultTheme: pink;
     flex: 1 1 auto;
     position: relative;
     overflow: hidden;
-    overflow-y: scroll;
-    #keyword,
-    #animation,
-    .bg {
+    // 动画容器
+    #animation,.bg{
       width: 100%;
       height: 100%;
-      z-index: 1;
-      position: relative;
+      position: absolute;
       left: 0;
-      top: 0;
+      bottom: 0;
     }
     #keyword {
-      height: auto;
+      width: 100%;
+      height: 100%;
       display: flex;
-      flex-wrap: wrap;
       flex-direction: column;
+      flex-wrap: wrap;
+      position: absolute;
+      overflow: hidden;
+      overflow-y: scroll;
+      top: 0;
+      left: 0;
       p {
-        flex: 0 0 0;
+        // flex: 0 0 0;
         max-width: 67.8%;
         position: relative;
         line-height: 45px;
@@ -58,7 +63,7 @@ $defaultTheme: pink;
         border-radius: 5px;
         padding: 0 10px;
         // 聊天框阴影
-        box-shadow: 0 1px 5px 1px rgba(0,0,0,.2);
+        box-shadow: 0 1px 5px 1px rgba(0,0,0,.1);
         &::before {
           content: var(--name, 'name');
           position: absolute;
@@ -76,7 +81,7 @@ $defaultTheme: pink;
           // background-image: url(http://wxhboy.cn/img/b);
           background-size: cover;
           // 头像阴影
-          box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.05);
         }
       }
       .myself {

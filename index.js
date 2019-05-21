@@ -14,13 +14,16 @@ const elObj = {
 }
 let keyword = {
   '么么哒': '😘',
-  '猪': ['🐖', '🐽', '🐷', '🐗']
+  '猪': ['🐖', '🐽', '🐷', '🐗'],
+  '爱':['❤','💕'],
+  '大便':'💩',
+  '粑粑':'💩'
 }
 // 发送按钮
 myClick(elObj.send, () => {
   const inputval = elObj.message.value;
   inputval && pushMessage(inputval, '我', true)
-  elObj.message.value = '';
+  // elObj.message.value = '';
 })
 //HTML转义
 const HTMLEncode = html => {
@@ -51,11 +54,13 @@ const createAnimation = icon => {
   const count = Math.round(width * height / 5000);
   const averageCount = Math.round(width / 65);
   const fw = width / averageCount;
-  let logo = icon
+  let numbercount = 0;
+  let logo = icon;
   if (Array.isArray(icon)) {
     const index = myRandom(0, icon.length - 1)
     logo = icon[Math.floor(index)];
   }
+  elObj.animation.style.zIndex = 99;
   [...Array(count).keys()].forEach(index => {
     let childEl = document.createElement('i');
     const left = (myRandom(1, fw) + fw) * (index % averageCount) + 'px';
@@ -72,6 +77,9 @@ const createAnimation = icon => {
     // 过渡结束后执行
     childEl.addEventListener('transitionend', ({ target }) => {
       target.parentNode.removeChild(target);
+      if(++numbercount >= count){
+        elObj.animation.style.zIndex = 0
+      }
     })
     elObj.animation.appendChild(childEl)
   })
