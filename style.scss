@@ -1,2 +1,112 @@
 @import './reset.css';
+// 主题颜色
+$defaultTheme: pink;
 
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+#phone {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  // 头部
+  #header {
+    height: 7%;
+    background-color: rgba($color: darken($defaultTheme, 10%), $alpha: 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: invert($defaultTheme);
+    text-indent: 0.3rem;
+    margin-left: -0.3rem;
+  }
+  #main {
+    flex: 1 1 auto;
+    position: relative;
+    #keyword,
+    .bg {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      position: absolute;
+    }
+  }
+  #footer {
+    height: 8%;
+    background-color: rgba($color: darken($defaultTheme, 1%), $alpha: 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    #message {
+      flex: 1 1 auto;
+      height: 35px;
+      outline: none;
+      border-radius: 3px;
+      border: 1px solid darken($defaultTheme, 10%);
+      background-color: transparent;
+      padding: 0 0.2rem;
+      box-sizing: border-box;
+      &:focus {
+        border: 1px solid darken($defaultTheme, 30%);
+      }
+    }
+    #send {
+      outline: none;
+      border-radius: 3px;
+      margin-left: 15px;
+      padding: 0 15px;
+      line-height: 35px;
+      height: 35px;
+      background-color: darken($defaultTheme, 5%);
+      border: 1px solid darken($defaultTheme, 1%);
+      color: invert($defaultTheme);
+      &:active {
+        background-color: darken($defaultTheme, 50%);
+        color: lighten($defaultTheme, 50%);
+      }
+    }
+  }
+}
+
+// 主题背景
+#root {
+  #phone {
+    #main {
+      // 主题1
+      .theme {
+        z-index: 0;
+        position: relative;
+        filter: blur(50px);
+        &::before {
+          content: '';
+          position: absolute;
+          left: -10%;
+          top: 10%;
+          width: 30%;
+          height: 10%;
+          border-radius: 50%;
+          background-color:  saturate($defaultTheme,50%);
+          box-shadow: 50px 320px 200px 30px adjust-hue($defaultTheme,90%);
+        }
+        &:after {
+          content: '';
+          border-radius: 50%;
+          right: 3%;
+          bottom: 3%;
+          position: absolute;
+          width: 10%;
+          height: 14%;
+          background-color:   adjust-hue($defaultTheme,100%);
+          box-shadow: -100px -220px 50px 10px saturate($defaultTheme,1%);
+        }
+      }
+    }
+  }
+}
