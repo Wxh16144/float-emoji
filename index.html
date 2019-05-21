@@ -25,6 +25,20 @@
       name="viewport"
       content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
     />
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait" />
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait" />
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes" />
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true" />
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application" />
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app" />
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no" />
     <title>520❤遇见你</title>
     <link rel="stylesheet" href="./style.scss" />
   </head>
@@ -33,11 +47,16 @@
       <div id="phone">
         <div id="header">联系人</div>
         <div id="main">
-          <div id="keyword"></div>
+          <div id="keyword">
+            <p class="myself" style="--name:'我'">你好</p>
+            <p class="myself" style="--name:'我'">你好,臭🐖</p>
+            <p class="opposite" style="--name:'宝贝'">你好</p>
+          </div>
           <div class="bg theme"></div>
+          <div id="animation"></div>
         </div>
         <div id="footer">
-          <input type="text" id="message" maxlength="255">
+          <input type="text" id="message" maxlength="255" />
           <button id="send">发送</button>
         </div>
       </div>

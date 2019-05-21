@@ -18,41 +18,109 @@ $defaultTheme: pink;
   // 头部
   #header {
     height: 7%;
-    background-color: rgba($color: darken($defaultTheme, 10%), $alpha: 1);
+    background-color: rgba($color: darken($defaultTheme, 8%), $alpha: 1);
     display: flex;
     align-items: center;
     justify-content: center;
     color: invert($defaultTheme);
     text-indent: 0.3rem;
     margin-left: -0.3rem;
+    box-shadow: 0 3px 10px 1px darken($defaultTheme, 0);
   }
   #main {
     flex: 1 1 auto;
     position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
     #keyword,
+    #animation,
     .bg {
       width: 100%;
       height: 100%;
       z-index: 1;
-      position: absolute;
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+    #keyword {
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      p {
+        flex: 0 0 0;
+        max-width: 67.8%;
+        position: relative;
+        line-height: 45px;
+        display: inline-block;
+        margin: 10px 0;
+        // background-color: red;
+        border-radius: 5px;
+        padding: 0 10px;
+        // 聊天框阴影
+        box-shadow: 0 1px 5px 1px rgba(0,0,0,.2);
+        &::before {
+          content: var(--name, 'name');
+          position: absolute;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-color: darken($defaultTheme, 10%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          white-space: nowrap;
+          font-size: 14px;
+          overflow: hidden;
+          color: lighten($defaultTheme, 50%);
+          // background-image: url(http://wxhboy.cn/img/b);
+          background-size: cover;
+          // 头像阴影
+          box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.1);
+        }
+      }
+      .myself {
+        align-self: flex-end;
+        margin-right: 65px;
+        text-align: right;
+        &::before {
+          right: -55px;
+        }
+      }
+      .opposite {
+        align-self: flex-start;
+        text-align: left;
+        margin-left: 65px;
+        background-color:darken($defaultTheme, .1%) ;
+        &::before {
+          left: -55px;
+        }
+      }
+    }
+    #animation {
+      overflow: hidden;
     }
   }
   #footer {
-    height: 8%;
+    height: 10%;
     background-color: rgba($color: darken($defaultTheme, 1%), $alpha: 1);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 15px;
+
     #message {
       flex: 1 1 auto;
-      height: 35px;
+      height: 45px;
       outline: none;
       border-radius: 3px;
       border: 1px solid darken($defaultTheme, 10%);
       background-color: transparent;
       padding: 0 0.2rem;
       box-sizing: border-box;
+      font-size: 16px;
+      color: invert($defaultTheme);
+      -webkit-appearance: none;
       &:focus {
         border: 1px solid darken($defaultTheme, 30%);
       }
@@ -62,8 +130,9 @@ $defaultTheme: pink;
       border-radius: 3px;
       margin-left: 15px;
       padding: 0 15px;
-      line-height: 35px;
-      height: 35px;
+      line-height: 45px;
+      height: 45px;
+      font-size: 16px;
       background-color: darken($defaultTheme, 5%);
       border: 1px solid darken($defaultTheme, 1%);
       color: invert($defaultTheme);
@@ -92,8 +161,8 @@ $defaultTheme: pink;
           width: 30%;
           height: 10%;
           border-radius: 50%;
-          background-color:  saturate($defaultTheme,50%);
-          box-shadow: 50px 320px 200px 30px adjust-hue($defaultTheme,90%);
+          background-color: saturate($defaultTheme, 50%);
+          box-shadow: 50px 320px 200px 30px adjust-hue($defaultTheme, 90%);
         }
         &:after {
           content: '';
@@ -103,10 +172,29 @@ $defaultTheme: pink;
           position: absolute;
           width: 10%;
           height: 14%;
-          background-color:   adjust-hue($defaultTheme,100%);
-          box-shadow: -100px -220px 50px 10px saturate($defaultTheme,1%);
+          background-color: adjust-hue($defaultTheme, 100%);
+          box-shadow: -100px -220px 50px 10px saturate($defaultTheme, 1%);
         }
       }
     }
+  }
+}
+body {
+  //滚动条样式
+  overflow-y: auto !important;
+  height: 100%;
+  &::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+  /*定义滚动条轨道 内阴影+圆角*/
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: $defaultTheme;
+  }
+  /*定义滑块 内阴影+圆角*/
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: darken($defaultTheme, 1%);
   }
 }
