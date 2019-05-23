@@ -1,3 +1,4 @@
+import keyword from './keyword'
 const $ = str => document.querySelector(str)
 const myClick = (el = document, fn = () => { }) => el.addEventListener('click', fn)
 const elObj = {
@@ -11,13 +12,6 @@ const elObj = {
   animation: $('#animation'),
   message: $('#message'),
   send: $('#send')
-}
-let keyword = {
-  '么么哒': '😘',
-  '猪': ['🐖', '🐽', '🐷', '🐗'],
-  '爱':['❤','💕'],
-  '大便':'💩',
-  '粑粑':'💩'
 }
 // 发送按钮
 myClick(elObj.send, () => {
@@ -77,7 +71,7 @@ const createAnimation = icon => {
     // 过渡结束后执行
     childEl.addEventListener('transitionend', ({ target }) => {
       target.parentNode.removeChild(target);
-      if(++numbercount >= count){
+      if (++numbercount >= count) {
         elObj.animation.style.zIndex = 0
       }
     })
