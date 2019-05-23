@@ -21,7 +21,7 @@ git clone https://github.com/Wxh16144/love.git
 ```bash
 cd love && npm i
 ```
-> 启动 (嘴角微微上扬🐶)
+> 启动
 ```bash
 npm start
 ```
@@ -31,4 +31,10 @@ npm start
 ```bash
 npm build
 ```
+
+### 🥰Hellp me
+> 这个项目他不是完美的,需要你们的帮助;
+> 如果可以,欢迎您提出宝贵的建议;
+[帮助我完善这个项目](https://github.com/Wxh16144/love/issues/1)
+
 
