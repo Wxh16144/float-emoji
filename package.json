@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo i love you",
-    "start": "parcel index.html -p 8088",
-    "build": "rimraf dist/* && parcel build index.html"
+    "start": "parcel index.html --port 8888 --no-cache",
+    "build": "rimraf dist/* && parcel build index.html && cd dist && npx http-server -o"
   },
   "keywords": [
     "521",
