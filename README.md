@@ -12,7 +12,7 @@
 
 ![love](./love.gif)
 
-### 干 (如何跑起来)
+### 👨‍💻运行
 > 拉取项目到本地
 ```bash
 git clone https://github.com/Wxh16144/love.git
