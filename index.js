@@ -39,6 +39,9 @@ const pushMessage = (str, name, ismyself) => {
   const find = Object.keys(keyword).find(key => new RegExp(key, 'ig').test(str))
   const icon = keyword[find];
   icon && createAnimation(icon)
+  elObj.keyword.scrollTop = elObj.keyword.scrollHeight;
+  elObj.message.placeholder = Object.keys(keyword)[Math.floor(myRandom(0, Object.keys(keyword).length - 1))]
+  elObj.message.value = ''
 }
 
 const myRandom = (min = 0, max = min + 1) => Math.random() * (max - min + 1) + min;
