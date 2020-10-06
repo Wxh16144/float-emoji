@@ -1,18 +1,25 @@
 {
-  "name": "love",
+  "name": "float-emoji",
   "version": "1.0.0",
   "description": "521",
   "main": "index.js",
   "scripts": {
     "test": "echo i love you",
     "start": "parcel index.html --port 8888 --no-cache",
-    "build": "rimraf dist/* && parcel build index.html && cd dist && npx http-server -o"
+    "build": "rimraf pages/* && parcel build index.html -d pages && cd pages && npx http-server -o"
   },
   "keywords": [
     "521",
     "love"
   ],
-  "author": "Wuxiaohong",
+  "author": "Wxh16144",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Wxh16144/float-emoji.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wxh16144/float-emoji/issues"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.4.4",
