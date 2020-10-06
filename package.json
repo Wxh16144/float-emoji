@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo i love you",
     "start": "parcel index.html --port 8888 --no-cache",
-    "build": "rimraf docs/* && parcel build index.html -d docs && cd docs && npx http-server -o"
+    "build": "rimraf docs/* && parcel build index.html -d docs --public-url ./ && cd docs && npx http-server -o"
   },
   "keywords": [
     "521",
