@@ -13,11 +13,19 @@ const elObj = {
   message: $('#message'),
   send: $('#send')
 }
-// 发送按钮
-myClick(elObj.send, () => {
+
+function sendMessage() {
   const inputval = elObj.message.value;
   inputval && pushMessage(inputval, '我', true)
-  // elObj.message.value = '';
+}
+
+// 发送按钮
+myClick(elObj.send, () => sendMessage())
+// fix: https://github.com/Wxh16144/float-emoji/issues/4
+elObj.message.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter' || e.keyCode === 13) {
+    sendMessage()
+  }
 })
 //HTML转义
 const HTMLEncode = html => {
@@ -31,7 +39,7 @@ const pushMessage = (str, name, ismyself) => {
   var html = `
     <p class="${ismyself ? 'myself' : 'opposite'}"
        style="--name:'${name}'">${HTMLEncode(str)}
-    </p>
+    </p >
   `
   elObj.keyword.innerHTML += html;
   elObj.main.scrollTop = elObj.keyword.scrollHeight
